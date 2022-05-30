@@ -29,4 +29,5 @@ EXPOSE 8899/tcp
 ENTRYPOINT [ "proxy" ]
 CMD [ \
   "--hostname=0.0.0.0" \
+  "--ports=8080" \
   ]
