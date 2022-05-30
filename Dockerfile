@@ -26,8 +26,10 @@ RUN pip install --upgrade pip && \
 RUN if [[ -z "$SKIP_OPENSSL" ]]; then apk update && apk add openssl; fi
 
 EXPOSE 8899/tcp
+EXPOSE 8080/tcp
+
 ENTRYPOINT [ "proxy" ]
 CMD [ \
-  "--hostname=0.0.0.0" \
+  "--hostname=0.0.0.0", \
   "--ports=8080" \
   ]
