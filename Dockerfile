@@ -19,11 +19,8 @@ COPY README.md /
 COPY $PROXYPY_PKG_PATH /
 
 RUN pip install --upgrade pip && \
-  pip install \
-  --no-index \
-  --find-links file:/// \
-  proxy.py && \
-  rm *.whl
+  pip install --upgrade proxy.py && \
+  rm -rf *.whl
 
 # Use `--build-arg SKIP_OPENSSL=1` to disable openssl installation
 RUN if [[ -z "$SKIP_OPENSSL" ]]; then apk update && apk add openssl; fi
